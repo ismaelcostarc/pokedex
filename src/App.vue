@@ -1,29 +1,40 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import Pagination from "./components/Pagination.vue";
+import List from "./components/List.vue";
+import Title from "./components/Title.vue";
+import { ref } from "vue";
+
+const page = ref(1);
+
+const setPage = (number) => {
+  page.value = number;
+};
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="parent">
+    <Title />
+    <Pagination @selectPage="setPage" />
+    <Suspense>
+      <List :page="1" />
+      <template #fallback> Loading... </template>
+    </Suspense>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+.parent {
+  background: rgb(0, 255, 46);
+  background: linear-gradient(
+    138deg,
+    rgba(0, 255, 46, 1) 0%,
+    rgba(254, 255, 0, 1) 20%,
+    rgba(255, 0, 0, 1) 100%
+  );
+  height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 </style>

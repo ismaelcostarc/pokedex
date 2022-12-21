@@ -1,0 +1,14 @@
+<template>
+  <div class="title">Pokedex</div>
+</template>
+
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+.title {
+  font-weight: 900;
+  font-size: 3rem;
+  color: white;
+  font-family: 'Archivo Black', sans-serif;
+  text-align: center;
+}
+</style>
