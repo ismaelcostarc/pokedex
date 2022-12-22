@@ -13,12 +13,12 @@ const setPage = (number) => {
 
 <template>
   <div class="parent">
-    <Title />
-    <Pagination @selectPage="setPage" />
+    <Title/>
     <Suspense>
-      <List :page="1" />
+      <List :page="page" />
       <template #fallback> Loading... </template>
     </Suspense>
+    <Pagination @selectPage="setPage" />
   </div>
 </template>
 
@@ -31,7 +31,7 @@ const setPage = (number) => {
     rgba(254, 255, 0, 1) 20%,
     rgba(255, 0, 0, 1) 100%
   );
-  height: 100vh;
+  min-height: 100vh;
   padding: 2rem;
   display: flex;
   flex-direction: column;

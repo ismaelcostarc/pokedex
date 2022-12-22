@@ -40,8 +40,6 @@ const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/po
 </template>
 
 <style scoped lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Andika:wght@400;700&display=swap");
-
 .card {
   height: 15rem;
   width: 15rem;

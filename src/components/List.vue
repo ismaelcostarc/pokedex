@@ -2,6 +2,7 @@
 import Card from "./Card.vue";
 import { api } from "../services/api";
 import { ref } from "vue";
+import { watch } from "vue";
 
 const props = defineProps({
   page: {
@@ -12,13 +13,26 @@ const props = defineProps({
 
 const pokemons = ref([]);
 
-const initialIndex = props.page * 20 - 19;
+watch(
+  () => props.page,
+  async () => {
+    pokemons.value = [];
+    const initialIndex = props.page * 20 - 19;
 
-for (let i = initialIndex; i <= 20; i++) {
-  const { data } = await api.get(`${i}`);
-  pokemons.value = [...pokemons.value, data];
-}
+    for (let i = initialIndex; i <= initialIndex + 20; i++) {
+      const { data } = await api.get(`${i}`);
 
+      console.log("a");
+      console.log(data);
+      pokemons.value = [...pokemons.value, data];
+    }
+
+    console.log(initialIndex);
+  },
+  {
+    immediate: true,
+  }
+);
 </script>
 
 <template>

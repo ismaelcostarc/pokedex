@@ -3,7 +3,6 @@
 </template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 .title {
   font-weight: 900;
   font-size: 3rem;
