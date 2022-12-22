@@ -1,14 +1,12 @@
 <script setup>
+import colors from '../constants/colors'
+
 const props = defineProps({
   id: {
     type: Number,
     required: true,
   },
   name: {
-    type: String,
-    required: true,
-  },
-  backgroundColor: {
     type: String,
     required: true,
   },
@@ -19,10 +17,12 @@ const props = defineProps({
 });
 
 const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${props.id}.png`;
+
+const backgroundColor = colors.find(color => color.type === props.types[0].type.name)?.color
 </script>
 
 <template>
-  <div class="card" :style="{ backgroundColor: props.backgroundColor }">
+  <div class="card" :style="{ backgroundColor: backgroundColor }">
     {{ props.types[0].name }}
     <div class="card__img">
       <img :src="url" :alt="`${name} Image`" />

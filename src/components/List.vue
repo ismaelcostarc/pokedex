@@ -22,12 +22,8 @@ watch(
     for (let i = initialIndex; i <= initialIndex + 20; i++) {
       const { data } = await api.get(`${i}`);
 
-      console.log("a");
-      console.log(data);
       pokemons.value = [...pokemons.value, data];
     }
-
-    console.log(initialIndex);
   },
   {
     immediate: true,
@@ -42,7 +38,6 @@ watch(
       :name="pokemon.name"
       :id="pokemon.id"
       :types="[...pokemon.types]"
-      backgroundColor="#efefef"
     />
   </div>
 </template>
